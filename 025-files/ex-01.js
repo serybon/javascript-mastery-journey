@@ -12,7 +12,7 @@ fs.writeFile('example.txt', data, 'utf8', (err) => {
 });
 
 // Асинхронное чтение из файла
-fs.readFile('example2.txt', 'utf8', (err, data) => {
+fs.readFile('example.txt', 'utf8', (err, data) => {
     if (err) {
         console.error("Ошибка при чтении файла: ", err);
         return;

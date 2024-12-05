@@ -53,3 +53,9 @@ console.log(`Является ли 5.5 конечным числом: ${Number.i
 
 // Деление на ноль
 console.log(`Результат деления -10 на 0: ${-10 / 0}`); // Добавлено пояснение
+
+console.log(Number.isNaN(undefined));
+console.log(Number.isNaN("NaN"));
+console.log(Number.isNaN(0 / 0));
+console.log(Number.isNaN(NaN));
+console.log(isNaN(0 / 0));

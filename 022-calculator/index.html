@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tips calculator</title>
+    <style>
+        label {
+            font-size: 20px;
+            /* //display: flex; */
+        }
+
+        .labelAndInput,
+        .resultsContainer,
+        .labelRsults {
+            margin: 10px;
+            font-size: 20px;
+        }
+
+        .resultsContainer {
+            display: flex;
+
+        }
+
+        button {
+            display: flex;
+            margin: 30px;
+            justify-content: center;
+            align-items: center;
+            width: 250px;
+            height: 35px;
+        }
+
+        /* .buttonContainer {
+            display: flex;
+            
+        } */
+    </style>
+</head>
+
+<body>
+    <H1>Калькулятор чаевых</H1>
+
+    <grid>
+        <div>
+            <div class="labelAndInput">
+                <label class="label">Сумма счета</label>
+                <input class="input sum" id="inputSum" type="number" />
+            </div>
+            <div class="labelAndInput">
+                <label class="label">Процент чаевых</label>
+                <input class="input sum" id="inputPersentage" type="number" />
+            </div>
+            <div class="labelAndInput">
+                <label class="label">Количество гостей</label>
+                <input class="input sum" id="inputNumberOfClients" type="number" />
+            </div>
+        </div>
+    </grid>
+    <div>
+        <button id="btn" onclick="clickBtn()">Рассчитать</button>
+    </div>
+
+    <div>
+        <div>
+            <div class="resultsContainer">
+                <label class="labelRsults">Чаевые:</label>
+                <label class="labelRsults" id="sumTips" type="text"></label>
+            </div>
+            <div class="resultsContainer">
+                <label class="labelRsults">Общая сумма:</label>
+                <label class="labelRsults" id="sumPlusTips" type="text"></label>
+            </div>
+            <div class="resultsContainer">
+                <label class="labelRsults">Сумма на одного гостя:</label>
+                <label class="labelRsults" id="sumMustPayByEach" type="text"></label>
+            </div>
+        </div>
+    </div>
+    <script src="./ex-1.js"></script>
+</body>
+
+</html>

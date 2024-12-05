@@ -11,7 +11,7 @@ let sum = 0;
 let strOut = "";
 for (let i = 0; i < array.length; i++) {
     const element = array[i];
-    strOut += `[${element}] `;
+    strOut += `${element}`;
     sum += element;
 }
 

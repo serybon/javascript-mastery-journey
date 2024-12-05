@@ -12,3 +12,8 @@ let str = "hello world!";
 for (const e of str) {
     console.log(`[${e}]`);
 }
+
+str = "Hello world!";
+for (const e of str) {
+    console.log(`[${e}]`);
+}
