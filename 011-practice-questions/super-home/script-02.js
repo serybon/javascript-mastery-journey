@@ -1,47 +1,4 @@
 let score = 0;
-function getResult() {
-    switch (score) {
-        case 0: alert(
-            `Общий счет викторины равен: ${score}
-             Вам неплохо было бы пройти школьный курс математики снова`); break;
-        case 10: alert(
-            `Общий счет викторины равен: ${score}
-             Всего 1 правильный ответ. Пора брать репетитора`); break;
-        case 20: alert(
-            `Общий счет викторины равен: ${score}
-             Хорошо. Но могло быть и лучше`); break;
-        case 30: alert(
-            `Общий счет викторины равен: ${score}
-             Было бы неплохо повторить некоторые темы и будет ОК`); break;
-        case 40: alert(
-            `Общий счет викторины равен: ${score}
-             Вы молодец! Так держать!`); break;
-        default: alert(`Что-то пошло не так, однозначно!!`); break;
-    }
-}
-
-function startQuiz() {
-    questions.forEach((q, index) => {
-        const userAnswer = prompt(`${index + 1}. ${q.question}\n` + q.options.join("\n"))
-        if (userAnswer === q.answer1 || userAnswer === q.answer2) {
-            score += 10;
-            alert(
-                `Поздравляю! Вы ответили верно! 
-                 Плюс 10 очков к счету. 
-                 Счет: ${score}`);
-        }
-        else if (q.wrongAnswers.includes(userAnswer)) {
-            alert(
-                `Вы ответили неверно! Правильный ответ: ${q.answer1}. 
-                 0 очков к счету. 
-                 Счет: ${score}`);
-        }
-        else alert(
-            `Вы ввели недопустимое значение`);
-    })
-    getResult();
-}
-
 const questions = [
     {
         question: "Какое число является квадратом 7?",
@@ -72,7 +29,60 @@ const questions = [
         wrongAnswers: ["а", "б", "в", "-5", "10", "-15"]
     }
 ]
+function getResult() {
+    switch (score) {
+        case 0: alert(
+            `Общий счет викторины равен: ${score}
+             Вам неплохо было бы пройти школьный курс математики снова`); break;
+        case 10: alert(
+            `Общий счет викторины равен: ${score}
+             Всего 1 правильный ответ. Пора брать репетитора`); break;
+        case 20: alert(
+            `Общий счет викторины равен: ${score}
+             Хорошо. Но могло быть и лучше`); break;
+        case 30: alert(
+            `Общий счет викторины равен: ${score}
+             Было бы неплохо повторить некоторые темы и будет ОК`); break;
+        case 40: alert(
+            `Общий счет викторины равен: ${score}
+             Вы молодец! Так держать!`); break;
+        default: alert(`Что-то пошло не так, однозначно!!`); break;
+    }
+}
 
+function scoreDoesNotChanges(item) {
+    alert(
+        `Вы ответили неверно! Правильный ответ: ${item.answer1}. 
+     0 очков к счету. 
+     Счет: ${score}`);
+}
 
+function scoreIncrease() {
+    score += 10;
+    alert(
+        `Поздравляю! Вы ответили верно! 
+                 Плюс 10 очков к счету. 
+                 Счет: ${score}`);
+}
+
+function showErrorMessage() {
+    alert(
+        `Вы ввели недопустимое значение`);
+}
+
+function startQuiz() {
+    for (let index = 0; index < questions.length; index++) {
+        const item = questions[index];
+        const userAnswer = prompt(`${index + 1}. ${item.question}\n` + item.options.join("\n"))
+        if (userAnswer === item.answer1 || userAnswer === item.answer2) {
+            scoreIncrease();
+        }
+        else if (item.wrongAnswers.includes(userAnswer)) {
+            scoreDoesNotChanges(item)
+        }
+        else showErrorMessage();
+    }
+}
 startQuiz();
+getResult();
 
